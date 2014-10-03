@@ -7,6 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<p><%= session %></p>
+
+	<p>Your IP address is: <%= request.remote_ip %></p>
+	
+	<% if flash[:notice] %>
+		<p id="notice"><%= flash[:notice]%>
+	<% end %>
+
+
+	<% if flash[:alert] %>
+		<p id="alert"><%= flash[:alert]%>
+	<% end %>
+	
 
 <%= yield %>
 
