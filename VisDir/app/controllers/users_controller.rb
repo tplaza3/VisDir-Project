@@ -5,12 +5,10 @@ class UsersController < ApplicationController
      @users = User.all
    end
    
-   def find
-     @user = User.new
-   end
   
   def new
     @user = User.new
+    @member.build_listing
   end
 
   def create
@@ -26,6 +24,12 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    
+    if @user.listing.nil?
+      @listing.build_listing
+    end
+    
+    
     if @user != current_user
       redirect_to users_path, alert: "Users cannot edit other users."
     end
