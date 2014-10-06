@@ -1,25 +1,5 @@
 
-<header>
-  <div id="header">
-    <h1 id="header-logo"><a href="#">VisDir</a></h1>
-  
-    <nav id="header-nav">
-      <ul id="header-nav-ul">
-        <li><a href="#" class="header-nav-link">Favs</a></li>
-        <li><a href="#" class="header-nav-link">About</a></li>
-      </ul>
-    </nav>
-  
-    <div id="header-account">
-      <div id="header-account-label">Photographers</div>
-    
-      <ul id="header-account-ul">
-        <li id="header-account-login"><a href="#">Log in</a> or</li>
-        <li id="header-account-signup"><a href="#">Sign up</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
+
 
 <main>
   <div id="main">
@@ -36,8 +16,8 @@
         <p class="listing-details-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         
         <div class="listing-details-contact">
-          <a class="listing-details-contact-item" href="mailto:geoff_j@example.com">geoff_j@example.com</a>
-          <a class="listing-details-contact-item" href="http://geoffjohnsonphoto.com">http://geoffjohnsonphoto.com</a>
+          <a class="listing-details-contact-item" href="mailto:<%= @listing.user.email %>">Email: <%= @listing.user.email %></a>
+          <a class="listing-details-contact-item" href="<%= @listing.user.twitter %>">Twitter: <%= @listing.user.twitter %></a>
           <!-- Optional: Link to Twitter account. (Some users will have one; others may not.) -->
         </div>
       </div>
@@ -45,8 +25,3 @@
   </div>
 </main>
 
-<footer>
-  <div id="footer">
-    <a href="#">VisDir</a>
-  </div>
-</footer>
