@@ -27,113 +27,86 @@
       <div id="searchbar-label">I'm looking for</div>
     
       <div class="searchbar-section">
-					<% @listings.each do |l|%>
         <select>
+					<% @listings.each do |l|%>
           <option><%= l.category %></option>
-					<% end %>
+					<%end%>
         </select>
-      
+					
+				
         <div class="searchbar-section-label">Photographers</div>
       </div>
     
       <div class="searchbar-label_section">in</div>
     
       <div class="searchbar-section">
+					
+        <select >
 					<% @listings.each do |l|%>
-        <select>
           <option><%= l.location %></option>
 					<% end %>
         </select>
+				
+					
+					
+					
       </div>
     
       <div class="searchbar-label_section">for</div>
     
       <div class="searchbar-section">
-					<% @listings.each do |l|%>
+					
         <select>
+					<% @listings.each do |l|%>
           <option><%= l.budget %></option>
 					<% end %>
         </select>
+					
       </div>
     </div>
-  
+		
+	<% @listings.each do |l|%>
+		<% if l.user == nil %>
+		<% elsif l.user.pro == true %>
     <div id="cards">
       <div class="card card-pro">
         <a href="#" class="card-fav">Add to Favs</a>
       
         <div class="card-preview">
-          <a href="/listing/1"><img src="http://placekitten.com/g/200/180"></a>
+          <a href="/listing/<%= l.id %>"><img src="http://placekitten.com/g/200/180"></a>
         </div>
       
-        <h2 class="card-header"><a href="/listing/1">ACME Photography</a></h2>
+        <h2 class="card-header"><a href="/listing/<%= l.id %>"> <%= l.user.name if l.user %></a></h2>
       
         <div class="card-details">
-          <div class="card-details-location">Omaha, NE</div>
-          <div class="card-details-budget">Low Budget</div>
+          <div class="card-details-location"><%= l.location %></div>
+          <div class="card-details-budget"><%= l.budget %></div>
         </div>
       </div>
-    
-      <div class="card card-pro">
-        <a href="#" class="card-fav">Remove from Favs</a>
-      
-        <div class="card-preview">
-          <a href="/listing/90"><img src="http://placekitten.com/g/200/180"></a>
-        </div>
-      
-        <h2 class="card-header"><a href="/listing/90">Tiny Lens Studios</a></h2>
-      
-        <div class="card-details">
-          <div class="card-details-location">Lincoln, NE</div>
-          <div class="card-details-budget">High Budget</div>
-        </div>
-      </div>
-    
+			
+				<% else %>
+				
       <div class="card">
         <a href="#" class="card-fav">Remove from Favs</a>
         
-        <h2 class="card-header"><a href="/listing/11">Still Photography</a></h2>
+        <h2 class="card-header"><a href="/listing/<%= l.id %>"><%= l.user.name if l.user %></a></h2>
       
         <div class="card-preview">
-          <a href="/listing/11"><img src="http://placekitten.com/g/200/180"></a>
+          <a href="/listing/<%= l.id %>"><img src="http://placekitten.com/g/200/180"></a>
         </div>
       
         <div class="card-details">
-          <div class="card-details-location">Omaha, NE</div>
-          <div class="card-details-budget">High Budget</div>
+          <div class="card-details-location"><%= l.location %></div>
+          <div class="card-details-budget"><%= l.budget %></div>
         </div>
-      </div>
-    
-      <div class="card">
-        <a href="#" class="card-fav">Add to Favs</a>
-        
-        <h2 class="card-header"><a href="/listing/21">Ansel Adams</a></h2>
-      
-        <div class="card-preview">
-          <a href="/listing/21"><img src="http://placekitten.com/g/200/180"></a>
-        </div>
-      
-        <div class="card-details">
-          <div class="card-details-location">Omaha, NE</div>
-          <div class="card-details-budget">High Budget</div>
-        </div>
-      </div>
-    
-      <div class="card">
-        <a href="#" class="card-fav">Add to Favs</a>
-        
-        <h2 class="card-header"><a href="/listing/54">Instagram Studios</a></h2>
-      
-        <div class="card-preview">
-          <a href="/listing/54"><img src="http://placekitten.com/g/200/180"></a>
-        </div>
-      
-        <div class="card-details">
-          <div class="card-details-location">Lincoln, NE</div>
-          <div class="card-details-budget">Low Budget</div>
-        </div>
-      </div>
+      </div>  
     </div>
   </div>
+		<% end %>
+	<% end%>
+		
+	
+	
 </main>
 
 <footer>
