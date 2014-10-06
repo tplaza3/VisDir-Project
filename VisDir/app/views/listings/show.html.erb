@@ -29,9 +29,9 @@
       <img src="http://placekitten.com/g/200/180">
       
       <div class="listing-details">
-        <h3 class="listing-details-subheader">Geoff Johnson Photography</h3>
-        <div class="listing-details-location">Location: Omaha, NE</div>
-        <div class="listing-details-budget">Low Budget</div>
+        <h3 class="listing-details-subheader"><%= @listing.user.name %></h3>
+        <div class="listing-details-location">Location: <%= @listing.location %></div>
+        <div class="listing-details-budget">Budget: <%= @listing.budget %></div>
         
         <p class="listing-details-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         
