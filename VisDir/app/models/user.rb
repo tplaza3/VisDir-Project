@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :pro, :listings_attributes
+  attr_accessible :email, :name, :password, :password_confirmation, :pro, :listings_attributes, :twitter
   
   has_many :listings
   accepts_nested_attributes_for :listings, :allow_destroy => true, :reject_if => :listing_image_is_blank
