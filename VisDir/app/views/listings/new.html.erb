@@ -1,9 +1,2 @@
-<%= form_for @listing do |l| %>
-<p><%= l.text_field :title, :placeholder => "Listing title" %></p>
-<p><%= l.text_field :location, :placeholder => "Location" %></p>
-<p><%= l.text_field :budget, :placeholder => "Budget" %></p>
-<p><%= l.text_field :category, :placeholder => "Category" %></p>
-<p><!-- <%= f.file_field :listing_image %> --></p>
-<p><%= l.submit "Create Listing" %></p>
-  	
-<% end %>
+<h1>New Listing</h1>
+<%= render "form" %>
