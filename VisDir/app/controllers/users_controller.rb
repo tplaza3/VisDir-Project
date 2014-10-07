@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :authorize, :only => [:new, :create]
+  # skip_before_filter :authorize, :only => [:new, :create]
   
    def index
      @users = User.all
@@ -8,62 +8,42 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
-    @member.build_listing
+    # @user.build_listing
   end
 
   def create
     @user = User.new(params[:user])
     
     if @user.save
+      session[:user_id] = @user.id
       UserMailer.welcome(@user).deliver #Active Mailer insert
-      redirect_to root_path
+      redirect_to new_listing_path
     else
       render "new"
     end
   end
   
   def edit
-    @user = User.find(params[:id])
-    
-    if @user.listing.nil?
-      @listing.build_listing
+      @user = User.find(params[:id])
     end
-    
-    
-    if @user != current_user
-      redirect_to users_path, alert: "Users cannot edit other users."
-    end
-  end
-  
-  
   
   def update
     @user = User.find(params[:id])
-    
-    if @user != current_user
-      redirect_to users_path, alert: "Users cannot edit other users."
-    else
-      if @user.update_attributes(params[:user])
-        redirect_to users_path(@user.id), notice: "User successfully updated."
-      else
-        render "edit", alert: "Invalid. Please try again."
-      end
-    end
+    @user.update_attributes(params[:user])
   end
   
-  def show
-    @user = User.find(params[:id])
-    
+  def delete
+    @user = User.find(params[:id]).destroy
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    
-    if @user != current_user
-      redirect_to users_path, alert: "Users cannot delete other users."
-    else
-      @user.delete
-    redirect_to users_path, notice: "User successfully deleted."
-    end
-  end
+  # def destroy
+#     @user = User.find(params[:id])
+#
+#     if @user != current_user
+#       redirect_to users_path, alert: "Users cannot delete other users."
+#     else
+#       @user.delete
+#     redirect_to users_path, notice: "User successfully deleted."
+#     end
+#   end
 end

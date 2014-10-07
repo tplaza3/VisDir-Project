@@ -1,0 +1,15 @@
+<h2>Sign Up</h2>
+
+<%= form_for @user do |u| %>
+
+<p><%= u.text_field :name, :placeholder => "Name" %></p>
+<p><%= u.text_field :email, :placeholder => "E-mail" %></p>
+<p><%= u.text_field :twitter, :placeholder => "Twitter Web Address" %></p>
+<p><%= u.check_box :pro %>Did you pay? Check if your a PRO</p>
+<p><%= u.password_field :password, :placeholder => "Password, the trickier the better!"%></p>
+<p><%= u.password_field :password_confirmation, :placeholder => "I hope you remembered your password!"%></p>
+
+
+<p><%= u.submit "Signup", :class => 'submit' %></p>
+
+<% end %>

@@ -7,6 +7,9 @@ class ListingsController < ApplicationController
   end
   
   def new
+    @listing = Listing.new
+      
+      
   end
   
   def show

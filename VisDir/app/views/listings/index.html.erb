@@ -24,10 +24,7 @@
 					<% @listings.each do |l|%>
           <option><%= l.location %></option>
 					<% end %>
-        </select>
-				
-					
-					
+        </select>	
 					
       </div>
     
@@ -44,9 +41,9 @@
       </div>
     </div>
 		
-	<% @listings.each do |l|%>
-		<% if l.user == nil %>
-		<% elsif l.user.pro == true %>
+			<% @listings.each do |l|%>
+				<% if l.user == nil %>
+				<% elsif l.user.pro == true %>
     <div id="cards">
       <div class="card card-pro">
         <a href="#" class="card-fav">Add to Favs</a>
@@ -63,7 +60,7 @@
         </div>
       </div>
 			
-				<% else %>
+					<% else %>
 				
       <div class="card">
         <a href="#" class="card-fav">Remove from Favs</a>
@@ -81,8 +78,8 @@
       </div>  
     </div>
   </div>
-		<% end %>
-	<% end%>	
+				<% end %>
+			<% end%>	
 	
 </main>
 
